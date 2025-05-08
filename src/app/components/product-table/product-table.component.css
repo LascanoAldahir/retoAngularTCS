@@ -2,9 +2,10 @@
 .outer-container {
   background-color: #18181893;
   color: white;
-  padding: 40px;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  max-height: fit-content;
   max-width: 1200px;
   margin: 40px auto;
   box-sizing: border-box;

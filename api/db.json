@@ -39,6 +39,22 @@
       "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxR7kSSPfbOlxDjFG3EQB47a9tVYiylMhhgA&s",
       "fechaLib": "2023-01-02",
       "fechaRev": "2025-02-05"
+    },
+    {
+      "id": "59",
+      "nombre": "Mateo",
+      "description": "Compra Nacional",
+      "logo": "https://bucket.utua.com.br/img/2022/09/b521bc11-design-sem-nome-3-1-442x332.png",
+      "fechaLib": "2025-05-04",
+      "fechaRev": "2025-05-30"
+    },
+    {
+      "id": "50",
+      "nombre": "Cris",
+      "description": "Cuenta transaccional\t",
+      "logo": "https://micuenta.pichincha.com/onb-mfa-login/8c20d69b26237c1a39ba.png",
+      "fechaLib": "2025-04-16",
+      "fechaRev": "2025-05-08"
     }
   ]
 }
