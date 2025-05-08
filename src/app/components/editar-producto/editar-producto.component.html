@@ -1,0 +1,95 @@
+<div class="principal">
+    <div class="form">
+        <form (ngSubmit)="guardarCambios()">
+            <div class="form-grid">
+                <div>
+                    <label for="id">ID</label>
+                    <input 
+                    type="text" 
+                    id="id"
+                    name="id" 
+                    [(ngModel)]="product.id"
+                    required
+                    placeholder="Ingrese ID (máx 3)..."
+                    disabled
+                    />
+                    <div *ngIf="showErrors && !product.id" style="color: red;">Campo requerido</div>
+                </div>
+
+                <div>
+                    <label for="nombre">Nombre</label>
+                    <input 
+                    type="text" 
+                    id="nombre"
+                    name="nombre" 
+                    [(ngModel)]="product.nombre"
+                    required
+                    placeholder="Ingrese nombre..."
+                    />
+                    <div *ngIf="showErrors && !product.nombre" style="color: red;">Campo requerido</div>
+                </div>
+
+                <div>
+                    <label for="nombre">description</label>
+                    <input 
+                    type="text" 
+                    id="description"
+                    name="nombre" 
+                    [(ngModel)]="product.description"
+                    required
+                    placeholder="Descripción..."
+                    />
+                    <div *ngIf="showErrors && !product.description" style="color: red;">Campo requerido</div>
+                </div>
+
+
+                <div>
+                    <label for="logo">Logo (URL)</label>
+                    <input 
+                    type="text" 
+                    id="logo"
+                    name="logo" 
+                    [(ngModel)]="product.logo"
+                    required
+                    placeholder="URL del logo..."
+                    />
+                    <div *ngIf="showErrors && !product.logo" style="color: red;">Campo requerido</div>
+                </div>
+
+                <div>
+                    <label for="fechaLib">Fecha Liberacion</label>
+                    <input 
+                    type="date" 
+                    id="fechaLib"
+                    name="fechaLib" 
+                    [(ngModel)]="product.fechaLib"
+                    required
+                    />
+                    <div *ngIf="showErrors && !product.fechaLib" style="color: red;">Campo requerido</div>
+                </div>
+
+                <div>
+                    <label for="fechaRev">Fecha Liberacion</label>
+                    <input 
+                    type="date" 
+                    id="fechaRev"
+                    name="fechaRev" 
+                    [(ngModel)]="product.fechaRev"
+                    required
+                    />
+                    <div *ngIf="showErrors && !product.fechaRev" style="color: red;">Campo requerido</div>
+                </div>
+            </div>
+
+
+                <div class="form-buttons">
+                    <button type="reset" class="reset-btn">Reiniciar</button>
+                    <button type="submit" class="enviar-btn">Guardar</button>
+                </div>
+        </form>
+    </div>
+
+    <div class="cont-back">
+        <button type="button" class="back-btn" (click)="cancelar()">Cancelar</button>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+<div class="principal">
+    <div class="form">
+      <h1>Formulario de Registro</h1>
+      <form (ngSubmit)="enviarFormulario()">
+        <div class="form-grid">
+          <div>
+            <label for="id">ID</label>
+            <input
+              type="text"
+              id="id"
+              name="id"
+              required
+              maxlength="3"
+              [(ngModel)]="product.id"
+              [ngModelOptions]="{ standalone: true }"
+              placeholder="Ingrese ID (máx 3)..."
+            />
+            <div *ngIf="showErrors && !product.id" style="color:red;">Campo requerido</div>
+          </div>
+  
+          <div>
+            <label for="nombre">Nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              required
+              [(ngModel)]="product.nombre"
+              [ngModelOptions]="{ standalone: true }"
+              placeholder="Ingrese nombre producto..."
+            />
+            <div *ngIf="showErrors && !product.nombre" style="color:red;">Campo requerido</div>
+          </div>
+  
+          <div>
+            <label for="description">Descripción</label>
+            <input
+              type="text"
+              id="description"
+              name="description"
+              required
+              [(ngModel)]="product.description"
+              [ngModelOptions]="{ standalone: true }"
+              placeholder="Descripción..."
+            />
+            <div *ngIf="showErrors && !product.description" style="color:red;">Campo requerido</div>
+          </div>
+  
+          <div>
+            <label for="logo">Logo (URL)</label>
+            <input
+              type="text"
+              id="logo"
+              name="logo"
+              required
+              [(ngModel)]="product.logo"
+              [ngModelOptions]="{ standalone: true }"
+              placeholder="URL del logo..."
+            />
+            <div *ngIf="showErrors && !product.logo" style="color:red;">Campo requerido</div>
+          </div>
+  
+          <div>
+            <label for="fechaLib">Fecha Liberación</label>
+            <input
+              type="date"
+              id="fechaLib"
+              name="fechaLib"
+              required
+              [(ngModel)]="product.fechaLib"
+              [ngModelOptions]="{ standalone: true }"
+            />
+            <div *ngIf="showErrors && !product.fechaLib" style="color:red;">Campo requerido</div>
+          </div>
+  
+          <div>
+            <label for="fechaRev">Fecha Revisión</label>
+            <input
+              type="date"
+              id="fechaRev"
+              name="fechaRev"
+              required
+              [(ngModel)]="product.fechaRev"
+              [ngModelOptions]="{ standalone: true }"
+            />
+            <div *ngIf="showErrors && !product.fechaRev" style="color:red;">Campo requerido</div>
+          </div>
+        </div>
+        <br />
+        <div class="form-a">
+          <button type="reset" class="reset-btn">Reiniciar</button>
+          <button type="submit" class="enviar-btn">Enviar</button>
+        </div>
+      </form>
+    </div>
+    
+    <div class="cont-back">
+      <button type="back" class="back-btn" (click)=back() >Regresar</button>
+    </div>
+    
+</div>
+  

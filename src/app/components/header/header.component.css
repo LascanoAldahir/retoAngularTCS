@@ -1,0 +1,14 @@
+header{
+    height: 100%;
+}
+
+.logo {
+    display: block;               /* Hace que pueda centrarse con margin */
+    margin: 50px auto;            /* Centra horizontalmente */
+    width: 190px;                 /* Puedes modificar este valor */
+    height: auto;                 /* Mantiene la proporción de la imagen */
+}
+  
+.logo:hover {
+    transform: scale(1.05);       /* Efecto al pasar el mouse */
+}

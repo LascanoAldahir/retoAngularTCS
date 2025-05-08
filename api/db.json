@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": "2",
+      "nombre": "Compras nacionales",
+      "logo": "https://bucket.utua.com.br/img/2022/09/b521bc11-design-sem-nome-3-1-442x332.png",
+      "description": "Compras nacionales",
+      "fechaLib": "2025-02-01T00:00:00.000Z",
+      "fechaRev": "2025-02-01"
+    },
+    {
+      "id": "3",
+      "nombre": "Tarjeta de débito",
+      "logo": "https://micuenta.pichincha.com/onb-mfa-login/8c20d69b26237c1a39ba.png",
+      "description": "Cuenta transaccional",
+      "fechaLib": "2024-11-01",
+      "fechaRev": "2025-01-01"
+    },
+    {
+      "id": "123",
+      "nombre": "visa",
+      "description": "visa",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxR7kSSPfbOlxDjFG3EQB47a9tVYiylMhhgA&s",
+      "fechaLib": "2025-05-06",
+      "fechaRev": "2025-05-06"
+    },
+    {
+      "id": "9",
+      "nombre": "tarjeta 1",
+      "description": "visa",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxR7kSSPfbOlxDjFG3EQB47a9tVYiylMhhgA&s",
+      "fechaLib": "2025-05-14",
+      "fechaRev": "2025-05-06"
+    },
+    {
+      "id": "13",
+      "nombre": "David",
+      "description": "Visa",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxR7kSSPfbOlxDjFG3EQB47a9tVYiylMhhgA&s",
+      "fechaLib": "2023-01-02",
+      "fechaRev": "2025-02-05"
+    }
+  ]
+}
