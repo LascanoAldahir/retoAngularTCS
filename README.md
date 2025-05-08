@@ -1,6 +1,12 @@
 # Tcs1
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+<br>
+![image](https://github.com/user-attachments/assets/7a93935c-b706-484b-8f4d-cb6b64f78fc2)
+<br>
+cd .\api\
+<br>
+json-server --watch db.json --port 3000 
 
 ## Development server
 
