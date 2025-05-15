@@ -42,7 +42,7 @@ export class ProductTableComponent implements OnInit {
     this.productApi.getAll().subscribe((data) => {
       //almacena los productos en la propiedad producs
       this.products = data;
-      //Llama a este metodo para mostrar los productos
+      //Llama a este metodo para mostrar los productos..
       this.actualizarFiltrados();
     });
   }
