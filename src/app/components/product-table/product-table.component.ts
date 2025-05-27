@@ -24,17 +24,51 @@ export class ProductTableComponent implements OnInit {
   
   //Numero de productos por pagina
   pageSize: number = 5;
+  paginaActual: number=1;
 //Array con todos los productos
   products: Product[] = [];
   productosFiltrados: Product[] = [];
+   productosPaginados: Product[] = [];
 
   productoAEliminar: Product | null = null;
   mostrarModal: boolean = false;
+
+
+
+  // Propiedades calculadas para paginación
+  get totalRegistros(): number {
+    return this.productosFiltrados.length;
+  }
+
+  get totalPaginas(): number {
+    return Math.ceil(this.totalRegistros / this.pageSize);
+  }
+
+  get paginasVisibles(): number[] {
+    const paginas: number[] = [];
+    const maxPaginas = 5; // Máximo de páginas a mostrar
+    let inicio = Math.max(1, this.paginaActual - Math.floor(maxPaginas / 2));
+    let fin = Math.min(this.totalPaginas, inicio + maxPaginas - 1);
+    
+    // Ajustar inicio si estamos cerca del final
+    if (fin - inicio < maxPaginas - 1) {
+      inicio = Math.max(1, fin - maxPaginas + 1);
+    }
+    
+    for (let i = inicio; i <= fin; i++) {
+      paginas.push(i);
+    }
+    
+    return paginas;
+  }
+
 
   //Lama al metodo para cargar productos desde la API 
   ngOnInit(): void {
     this.cargarProductos();
   }
+
+  
 
 //Llama al método getAll() del servicio ApiServer
   cargarProductos() {
@@ -49,12 +83,20 @@ export class ProductTableComponent implements OnInit {
 
 //Filtra los productos basandose
   actualizarFiltrados() {
-    this.productosFiltrados = this.products
-      .filter(p =>
-        (p.nombre?.toLowerCase() ?? '').includes(this.searchText.toLowerCase()) ||
-        (p.description?.toLowerCase() ?? '').includes(this.searchText.toLowerCase())
-      )
-      .slice(0, this.pageSize);
+    this.productosFiltrados = this.products.filter(p => 
+      (p.nombre?.toLowerCase() ?? '').includes(this.searchText.toLowerCase()) ||
+      (p.description?.toLowerCase() ?? '').includes(this.searchText.toLowerCase())
+    );
+    
+    // Resetear a página 1 cuando se filtra
+    this.paginaActual = 1;
+    this.actualizarPaginacion();
+  }
+
+  actualizarPaginacion() {
+    const inicio = (this.paginaActual - 1) * this.pageSize;
+    const fin = inicio + this.pageSize;
+    this.productosPaginados = this.productosFiltrados.slice(inicio, fin);
   }
 
   onSearchTextChange() {
@@ -62,9 +104,18 @@ export class ProductTableComponent implements OnInit {
   }
 
   onPageSizeChange() {
-    this.actualizarFiltrados();
+    this.paginaActual = 1; // Resetear a página 1
+    this.actualizarPaginacion();
   }
 
+  irAPagina(pagina: number) {
+    if (pagina >= 1 && pagina <= this.totalPaginas) {
+      this.paginaActual = pagina;
+      this.actualizarPaginacion();
+    }
+  }
+
+  // Tus otros métodos existentes...
   irAAgregar() {
     this.router.navigate(['/agregar']);
   }
