@@ -14,8 +14,11 @@ cd tu-repositorio
 ```
 
 <br>
+
 ![image](https://github.com/user-attachments/assets/7a93935c-b706-484b-8f4d-cb6b64f78fc2)
+
 <br>
+
 
 ### Para echar a correr se ejecuta los dos siguientes codigos.
 
