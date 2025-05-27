@@ -13,11 +13,7 @@ git clone https://github.com/tu-usuario/tu-repositorio.git
 cd tu-repositorio
 ```
 
-<br>
-
 ![image](https://github.com/user-attachments/assets/7a93935c-b706-484b-8f4d-cb6b64f78fc2)
-
-<br>
 
 
 ### Ejecutar los TRES siguientes codigos.
@@ -25,7 +21,6 @@ cd tu-repositorio
 ```
 cd .\api\
 ```
-
 
 ```
 npm install
