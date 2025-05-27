@@ -55,6 +55,14 @@
       "logo": "https://micuenta.pichincha.com/onb-mfa-login/8c20d69b26237c1a39ba.png",
       "fechaLib": "2025-04-16",
       "fechaRev": "2025-05-08"
+    },
+    {
+      "id": "21",
+      "nombre": "Aldahir Lascano",
+      "description": "Compra Nacional",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxR7kSSPfbOlxDjFG3EQB47a9tVYiylMhhgA&s",
+      "fechaLib": "2025-05-13",
+      "fechaRev": "2025-05-27"
     }
   ]
 }
