@@ -20,18 +20,18 @@ cd tu-repositorio
 <br>
 
 
-### Para echar a correr se ejecuta los dos siguientes codigos.
+### Ejecutar los TRES siguientes codigos.
 
 ```
 cd .\api\
 ```
-<br>
 
-### Instalar dependencias:
 
 ```
 npm install
 ```
+
+### Importante para la gestion y visualización de datos
 
 ```
 
