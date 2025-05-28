@@ -32,11 +32,18 @@
             id="nombre"
             name="nombre" 
             [(ngModel)]="product.nombre"
+            (ngModelChange)="onFieldChange('nombre', $event)"
             required
-            placeholder="Ej: Tarjeta de Crédito Premium"
+            maxlength="100"
+            placeholder="Solo letras y espacios"
             class="form-input"
+            [class.error]="validationErrors['nombre']"
           />
-          <div *ngIf="showErrors && !product.nombre" class="error-message">
+          <small class="help-text">Solo letras, espacios y guiones (2-100 caracteres)</small>
+          <div *ngIf="validationErrors['nombre']" class="error-message">
+            <i class="error-icon">⚠</i> {{ validationErrors['nombre'] }}
+          </div>
+          <div *ngIf="showErrors && !product.nombre && !validationErrors['nombre']" class="error-message">
             <i class="error-icon">⚠</i> El nombre del producto es requerido
           </div>
         </div>
@@ -48,12 +55,19 @@
             id="description"
             name="description" 
             [(ngModel)]="product.description"
+            (ngModelChange)="onFieldChange('description', $event)"
             required
-            placeholder="Describe las características principales del producto..."
+            maxlength="500"
+            placeholder="Mínimo 10 caracteres..."
             class="form-textarea"
             rows="3"
+            [class.error]="validationErrors['description']"
           ></textarea>
-          <div *ngIf="showErrors && !product.description" class="error-message">
+          <small class="help-text">Mínimo 10 caracteres, máximo 500</small>
+          <div *ngIf="validationErrors['description']" class="error-message">
+            <i class="error-icon">⚠</i> {{ validationErrors['description'] }}
+          </div>
+          <div *ngIf="showErrors && !product.description && !validationErrors['description']" class="error-message">
             <i class="error-icon">⚠</i> La descripción es requerida
           </div>
         </div>
@@ -66,12 +80,17 @@
             id="logo"
             name="logo" 
             [(ngModel)]="product.logo"
+            (ngModelChange)="onFieldChange('logo', $event)"
             required
-            placeholder="https://ejemplo.com/logo.png"
+            placeholder="https://ejemplo.com/imagen.png"
             class="form-input"
+            [class.error]="validationErrors['logo']"
           />
-          <small class="help-text">Ingresa la URL completa de la imagen del logo</small>
-          <div *ngIf="showErrors && !product.logo" class="error-message">
+          <small class="help-text">URL válida que termine en .jpg, .png, .gif, etc.</small>
+          <div *ngIf="validationErrors['logo']" class="error-message">
+            <i class="error-icon">⚠</i> {{ validationErrors['logo'] }}
+          </div>
+          <div *ngIf="showErrors && !product.logo && !validationErrors['logo']" class="error-message">
             <i class="error-icon">⚠</i> La URL del logo es requerida
           </div>
         </div>
@@ -84,10 +103,16 @@
             id="fechaLib"
             name="fechaLib" 
             [(ngModel)]="product.fechaLib"
+            (ngModelChange)="onFieldChange('fechaLib', $event)"
             required
             class="form-input date-input"
+            [class.error]="validationErrors['fechaLib']"
           />
-          <div *ngIf="showErrors && !product.fechaLib" class="error-message">
+          <small class="help-text">No puede ser una fecha futura</small>
+          <div *ngIf="validationErrors['fechaLib']" class="error-message">
+            <i class="error-icon">⚠</i> {{ validationErrors['fechaLib'] }}
+          </div>
+          <div *ngIf="showErrors && !product.fechaLib && !validationErrors['fechaLib']" class="error-message">
             <i class="error-icon">⚠</i> La fecha de liberación es requerida
           </div>
         </div>
@@ -100,10 +125,16 @@
             id="fechaRev"
             name="fechaRev" 
             [(ngModel)]="product.fechaRev"
+            (ngModelChange)="onFieldChange('fechaRev', $event)"
             required
             class="form-input date-input"
+            [class.error]="validationErrors['fechaRev']"
           />
-          <div *ngIf="showErrors && !product.fechaRev" class="error-message">
+          <small class="help-text">Debe ser posterior a la fecha de liberación</small>
+          <div *ngIf="validationErrors['fechaRev']" class="error-message">
+            <i class="error-icon">⚠</i> {{ validationErrors['fechaRev'] }}
+          </div>
+          <div *ngIf="showErrors && !product.fechaRev && !validationErrors['fechaRev']" class="error-message">
             <i class="error-icon">⚠</i> La fecha de revisión es requerida
           </div>
         </div>
@@ -111,13 +142,14 @@
 
       <!-- Botones del formulario -->
       <div class="form-actions">
-        <button type="reset" class="btn btn-secondary">
+        <button type="reset" class="btn btn-secondary" [disabled]="isSubmitting">
           <i class="btn-icon">↻</i>
           Reiniciar
         </button>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary" [disabled]="isSubmitting">
           <i class="btn-icon">💾</i>
-          Guardar Cambios
+          <span *ngIf="!isSubmitting">Guardar Cambios</span>
+          <span *ngIf="isSubmitting">Guardando...</span>
         </button>
       </div>
     </form>

@@ -1,102 +1,162 @@
 <div class="principal">
-    <div class="form">
-      <h1>Formulario de Registro</h1>
-      <form (ngSubmit)="enviarFormulario()">
-        <div class="form-grid">
-          <div>
-            <label for="id">ID</label>
-            <input
-              type="text"
-              id="id"
-              name="id"
-              required
-              maxlength="3"
-              [(ngModel)]="product.id"
-              [ngModelOptions]="{ standalone: true }"
-              placeholder="Ingrese ID (máx 3)..."
-            />
-            <div *ngIf="showErrors && !product.id" style="color:red;">Campo requerido</div>
+  <div class="form">
+    <h1>Formulario de Registro</h1>
+    <form (ngSubmit)="enviarFormulario()">
+      <div class="form-grid">
+        
+        <!-- ID -->
+        <div>
+          <label for="id">ID</label>
+          <input
+            type="text"
+            id="id"
+            name="id"
+            required
+            maxlength="10"
+            pattern="[0-9]*"
+            [(ngModel)]="product.id"
+            (ngModelChange)="onFieldChange('id', $event)"
+            [ngModelOptions]="{ standalone: true }"
+            placeholder="Máximo 10 dígitos"
+            [class.error]="validationErrors['id']"
+          />
+          <small class="help-text">Solo números, máximo 10 dígitos</small>
+          <div *ngIf="validationErrors['id']" class="error-message">
+            ⚠ {{ validationErrors['id'] }}
           </div>
-  
-          <div>
-            <label for="nombre">Nombre</label>
-            <input
-              type="text"
-              id="nombre"
-              name="nombre"
-              required
-              [(ngModel)]="product.nombre"
-              [ngModelOptions]="{ standalone: true }"
-              placeholder="Ingrese nombre producto..."
-            />
-            <div *ngIf="showErrors && !product.nombre" style="color:red;">Campo requerido</div>
-          </div>
-  
-          <div>
-            <label for="description">Descripción</label>
-            <input
-              type="text"
-              id="description"
-              name="description"
-              required
-              [(ngModel)]="product.description"
-              [ngModelOptions]="{ standalone: true }"
-              placeholder="Descripción..."
-            />
-            <div *ngIf="showErrors && !product.description" style="color:red;">Campo requerido</div>
-          </div>
-  
-          <div>
-            <label for="logo">Logo (URL)</label>
-            <input
-              type="text"
-              id="logo"
-              name="logo"
-              required
-              [(ngModel)]="product.logo"
-              [ngModelOptions]="{ standalone: true }"
-              placeholder="URL del logo..."
-            />
-            <div *ngIf="showErrors && !product.logo" style="color:red;">Campo requerido</div>
-          </div>
-  
-          <div>
-            <label for="fechaLib">Fecha Liberación</label>
-            <input
-              type="date"
-              id="fechaLib"
-              name="fechaLib"
-              required
-              [(ngModel)]="product.fechaLib"
-              [ngModelOptions]="{ standalone: true }"
-            />
-            <div *ngIf="showErrors && !product.fechaLib" style="color:red;">Campo requerido</div>
-          </div>
-  
-          <div>
-            <label for="fechaRev">Fecha Revisión</label>
-            <input
-              type="date"
-              id="fechaRev"
-              name="fechaRev"
-              required
-              [(ngModel)]="product.fechaRev"
-              [ngModelOptions]="{ standalone: true }"
-            />
-            <div *ngIf="showErrors && !product.fechaRev" style="color:red;">Campo requerido</div>
+          <div *ngIf="showErrors && !product.id && !validationErrors['id']" style="color:red;">
+            Campo requerido
           </div>
         </div>
-        <br />
-        <div class="form-a">
-          <button type="reset" class="reset-btn">Reiniciar</button>
-          <button type="submit" class="enviar-btn">Enviar</button>
+
+        <!-- Nombre -->
+        <div>
+          <label for="nombre">Nombre</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            required
+            maxlength="100"
+            [(ngModel)]="product.nombre"
+            (ngModelChange)="onFieldChange('nombre', $event)"
+            [ngModelOptions]="{ standalone: true }"
+            placeholder="Solo letras y espacios"
+            [class.error]="validationErrors['nombre']"
+          />
+          <small class="help-text">Solo letras, espacios y guiones (2-100 caracteres)</small>
+          <div *ngIf="validationErrors['nombre']" class="error-message">
+            ⚠ {{ validationErrors['nombre'] }}
+          </div>
+          <div *ngIf="showErrors && !product.nombre && !validationErrors['nombre']" style="color:red;">
+            Campo requerido
+          </div>
         </div>
-      </form>
-    </div>
-    
-    <div class="cont-back">
-      <button type="back" class="back-btn" (click)=back() >Regresar</button>
-    </div>
-    
+
+        <!-- Descripción -->
+        <div>
+          <label for="description">Descripción</label>
+          <textarea
+            id="description"
+            name="description"
+            required
+            maxlength="500"
+            [(ngModel)]="product.description"
+            (ngModelChange)="onFieldChange('description', $event)"
+            [ngModelOptions]="{ standalone: true }"
+            placeholder="Mínimo 10 caracteres..."
+            rows="3"
+            [class.error]="validationErrors['description']"
+          ></textarea>
+          <small class="help-text">Mínimo 10 caracteres, máximo 500</small>
+          <div *ngIf="validationErrors['description']" class="error-message">
+            ⚠ {{ validationErrors['description'] }}
+          </div>
+          <div *ngIf="showErrors && !product.description && !validationErrors['description']" style="color:red;">
+            Campo requerido
+          </div>
+        </div>
+
+        <!-- Logo URL -->
+        <div>
+          <label for="logo">Logo (URL)</label>
+          <input
+            type="url"
+            id="logo"
+            name="logo"
+            required
+            [(ngModel)]="product.logo"
+            (ngModelChange)="onFieldChange('logo', $event)"
+            [ngModelOptions]="{ standalone: true }"
+            placeholder="https://ejemplo.com/imagen.png"
+            [class.error]="validationErrors['logo']"
+          />
+          <small class="help-text">URL válida que termine en .jpg, .png, .gif, etc.</small>
+          <div *ngIf="validationErrors['logo']" class="error-message">
+            ⚠ {{ validationErrors['logo'] }}
+          </div>
+          <div *ngIf="showErrors && !product.logo && !validationErrors['logo']" style="color:red;">
+            Campo requerido
+          </div>
+        </div>
+
+        <!-- Fecha Liberación -->
+        <div>
+          <label for="fechaLib">Fecha Liberación</label>
+          <input
+            type="date"
+            id="fechaLib"
+            name="fechaLib"
+            required
+            [(ngModel)]="product.fechaLib"
+            (ngModelChange)="onFieldChange('fechaLib', $event)"
+            [ngModelOptions]="{ standalone: true }"
+            [class.error]="validationErrors['fechaLib']"
+          />
+          <small class="help-text">No puede ser una fecha futura</small>
+          <div *ngIf="validationErrors['fechaLib']" class="error-message">
+            ⚠ {{ validationErrors['fechaLib'] }}
+          </div>
+          <div *ngIf="showErrors && !product.fechaLib && !validationErrors['fechaLib']" style="color:red;">
+            Campo requerido
+          </div>
+        </div>
+
+        <!-- Fecha Revisión -->
+        <div>
+          <label for="fechaRev">Fecha Revisión</label>
+          <input
+            type="date"
+            id="fechaRev"
+            name="fechaRev"
+            required
+            [(ngModel)]="product.fechaRev"
+            (ngModelChange)="onFieldChange('fechaRev', $event)"
+            [ngModelOptions]="{ standalone: true }"
+            [class.error]="validationErrors['fechaRev']"
+          />
+          <small class="help-text">Debe ser posterior a la fecha de liberación</small>
+          <div *ngIf="validationErrors['fechaRev']" class="error-message">
+            ⚠ {{ validationErrors['fechaRev'] }}
+          </div>
+          <div *ngIf="showErrors && !product.fechaRev && !validationErrors['fechaRev']" style="color:red;">
+            Campo requerido
+          </div>
+        </div>
+      </div>
+      
+      <br />
+      <div class="form-a">
+        <button type="reset" class="reset-btn" [disabled]="isSubmitting">Reiniciar</button>
+        <button type="submit" class="enviar-btn" [disabled]="isSubmitting">
+          <span *ngIf="!isSubmitting">Enviar</span>
+          <span *ngIf="isSubmitting">Enviando...</span>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="cont-back">
+    <button type="button" class="back-btn" (click)="back()">Regresar</button>
+  </div>
 </div>
-  

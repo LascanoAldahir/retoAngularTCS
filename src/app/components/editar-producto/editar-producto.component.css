@@ -279,3 +279,31 @@ label {
   color: #1a237e;
   transition: color 0.3s ease;
 }
+
+/* Estilos para validaciones */
+.help-text {
+  font-size: 11px;
+  color: #666;
+  margin-top: 2px;
+  font-style: italic;
+}
+
+.error-message {
+  color: #e53e3e;
+  font-size: 11px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-input.error,
+.form-textarea.error {
+  border-color: #e53e3e !important;
+  box-shadow: 0 0 0 2px rgba(229, 62, 62, 0.2);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

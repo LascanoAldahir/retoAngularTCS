@@ -10,6 +10,12 @@ export interface Product {
     nombre: string;
     description: string;
     logo: string;
-    fechaLib: Date;
-    fechaRev: Date;
+    fechaLib: Date | string;
+  fechaRev: Date | string;
+}
+
+// Agregar interface para validaciones
+export interface ValidationResult {
+  isValid: boolean;
+  message: string;
 }
