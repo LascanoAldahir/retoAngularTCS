@@ -42,7 +42,8 @@ http://localhost:4200
 
 ## Interfaz Principal
 
-![image](https://github.com/user-attachments/assets/df495d83-177b-47a5-b148-e0bd49fac9a0)
+![image](https://github.com/user-attachments/assets/46b38e19-4c7b-4062-bd68-a118f0151295)
+
 
 
 ## Interfaz de Registro
