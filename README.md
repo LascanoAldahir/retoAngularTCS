@@ -50,9 +50,19 @@ http://localhost:4200
 
 ![image](https://github.com/user-attachments/assets/f2045678-2348-490d-87aa-4d3211ed759d)
 
+##Validaciones en Registro
+
+![image](https://github.com/user-attachments/assets/a80802db-971c-4799-98d1-61b93a039764)
+
+
 ## Interfaz de Edición
 
 ![image](https://github.com/user-attachments/assets/e8fb7c50-8577-4456-81f9-14edc0b42e5f)
+
+## Validaciones en Edición
+
+![image](https://github.com/user-attachments/assets/84e37cd5-e431-4ad5-b199-fe593516429b)
+
 
 <br>
 
