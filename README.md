@@ -50,7 +50,7 @@ http://localhost:4200
 
 ![image](https://github.com/user-attachments/assets/f2045678-2348-490d-87aa-4d3211ed759d)
 
-##Validaciones en Registro
+## Validaciones en Registro
 
 ![image](https://github.com/user-attachments/assets/a80802db-971c-4799-98d1-61b93a039764)
 
