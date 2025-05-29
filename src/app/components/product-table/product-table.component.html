@@ -42,10 +42,17 @@
             <td>{{ product.description }}</td>
             <td>{{ product.fechaLib | date: 'yyyy-MM-dd' }}</td>
             <td>{{ product.fechaRev | date: 'yyyy-MM-dd' }}</td>
+
             <td>
+              <div class="dropdown">
+                 <button class="btnDropdown">⁝</button>
+                 <div class="dropdown-content">
               <button class="btn1" (click)="edit(product.id)">Editar</button>
               <button class="btn2" (click)="confirmarEliminacion(product)">Eliminar</button>
+              </div>
+              </div>
             </td>
+
           </tr>
         </tbody>
       </table>
